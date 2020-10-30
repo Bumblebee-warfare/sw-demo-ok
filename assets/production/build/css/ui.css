@@ -1,0 +1,448 @@
+*{
+	padding:0;
+	margin:0;
+    font-family: Arial!important;
+}
+body{
+	font-size: 11px;
+    width: 100%;
+    overflow: auto;
+}
+
+h1, h2, h3, h4, h5 {
+    margin:4px 0;
+}
+
+h1{ font-size: 1.7em }
+h2{ font-size: 1.5em }
+h3{ font-size: 1.4em }
+h4{ font-size: 1.3em }
+h5{ font-size: 1.2em }
+
+a {
+    text-decoration: none !important;
+    color: #3333CC;
+}
+
+img {
+	border:0;
+}
+.button{
+	font-weight: bold;
+	margin-left: 4px;
+    padding:2px 8px;
+    color: #333;
+    text-align: center;
+    border:0;
+    background: #fff url(/static/images/button.gif) repeat-x;
+    border:1px solid #d2d2d2;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.bbutton{
+	font-weight: bold;
+	margin-left: 4px;
+    padding:2px 8px;
+    color: #fff;
+    text-align: center;
+    border:0;
+    background: #fff url(/static/images/menu_bg.jpg) repeat-x;
+    border:1px solid #d2d2d2;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a.button: hover{
+   color: #fff;
+}
+
+select {
+    font-size: 11px;
+    padding: 1px;
+}
+table {
+    margin: 4px 2px;
+    font-size: 11px; 
+    border:1px solid #333;
+    border-spacing: 1px;
+    padding:0;
+}
+table td {
+    padding: 0px 2px;
+    margin:0;
+    text-align: left;
+    white-space:nowrap;
+    font-weight: bold;
+}
+
+table tr td a{
+    cursor: pointer;
+}
+
+table.wrapper{
+    padding:0;
+    margin:0;
+    border-spacing: 0;
+}
+
+table.wrapper td{
+    margin:0;
+}
+
+table.inner_wrapper{
+    padding:0;
+    margin:0;
+    border:0;
+    border-spacing: 1;
+}
+
+table.inner_wrapper td{
+    margin:0;
+}
+
+#container{
+	margin: 3px 2px;
+}
+#header{
+}
+
+.tb_header {
+	border: 0;
+	white-space: nowrap;
+}
+.tb_header td {
+	padding: 0;
+}
+
+#menu{
+}
+#content{
+    padding:2px;
+}
+
+
+#tools{
+}
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.center{
+    text-align: center;
+}
+
+/*menu*/
+#menu a{
+    border:1px solid #333;
+    margin:0 1px;
+    padding:5px;
+    display:inline;
+    color:#fff;
+    font-size: 11px;
+    text-decoration:none;
+    background: url(../images/menu.png) repeat-x;
+}
+
+#menu a:hover{
+    color:#1b61a1;
+    background: #f2f2f2;
+}
+#menu a.current{
+    color:#0b61a1 !important;
+    background: #f2f2f2;
+}
+
+#menu a.name {
+	cursor: default;
+    color:#fff !important;
+    background: url(../images/menu.png) repeat-x;
+}
+
+#menu a.name:hover {
+	cursor: default;
+    color:#fff !important;
+    background: url(../images/menu.png) repeat-x;
+}
+.pointer {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.red{
+    color: red;
+    font-weight: bold;
+    background: #C3FDB8;
+}
+
+.green{
+    color: green;
+    font-weight: bold;
+    background: #C3FDB8;
+    border: 0;
+}
+.sep{
+	padding:0 2px;
+    background: #333;
+    color: #fff;
+    font-weight: bold;
+}
+
+.sep a {
+    color: orange;
+}
+
+.top_header {
+    font-weight: bold;
+    font-size: 11px;
+    padding-top:2px;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.overview td{
+
+}
+
+#scroll_taggle{
+}
+
+tr.row_odd td{
+    background-color:#fff;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+tr.row_even td{
+    background-color: #e2e2e2;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.query_panel{
+    font-size: 11px !important;
+	color: #fff;
+    padding:1px 8px 0px 8px;
+    border: 1px solid #333;
+    height: 23px;
+    background: url(../images/menu.png) repeat-x;
+}
+
+.link_panel{
+    font-size: 11px !important;
+	margin-left:2px;
+    color: #fff;
+    padding:4px 8px 0px 8px;
+    border: 1px solid #333;
+    height: 20px;
+    background: url(../images/menu.png) repeat-x;
+}
+
+.tb_header a{
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+#unit{
+	width: 60px;
+}
+
+#number_input {
+	padding:2px;
+    width:22px;
+    text-align: center;
+}
+
+#from_date{
+    width: 100px ;
+    font-size: 11px;
+}
+
+#to_date{
+    width: 100px;
+    font-size: 11px;
+}
+
+.date_input{
+    width: 100px;
+    font-size: 11px;
+    padding: 1px 0;
+}
+
+.grey{
+    color: #777!important;
+    font-weight: normal;
+}
+
+td.sum{
+    font-weight: bold;
+}
+
+.more{
+	text-decoration: none; 
+    height:16px;
+    width:16px;
+    background:url(/static/images/more_16.png) no-repeat;
+    background-position: 1px 1px;
+}
+
+.less{
+    text-decoration: none;
+    height:16px;
+    width:16px;
+    background:url(/static/images/less_16.png) no-repeat;
+    background-position: 1px 1px;
+}
+
+.field_guild{
+    font-weight:bold; 
+    font-size: 12px; 
+    margin: 4px 0 0 4px
+}
+
+a.fake{
+    color: #333;
+    cursor: default;
+}
+
+.version{
+	margin:0px 20px 0 0;
+}
+/*highlight form*/
+
+.messagepop {
+  background-color:#fff;
+  border:1px solid #333;
+  cursor:default;
+  display:none;
+  margin-top: 10px;
+  position:absolute;
+  z-index:999;
+  padding: 0;
+  color: #333;
+  font-size:12px;
+  text-align: center;
+}
+
+.messagepop, .pop{
+}
+
+.messagepop input[type="text"] {
+    width: 24px;
+    font-size: 11px;
+}
+
+.messagepop .title {
+	padding:4px;
+    background: url(../images/menu.png) repeat-x;
+    color: #fff;
+    font-size: 12px;
+}
+
+.messagepop td{
+	padding: 1px 2px;
+	margin: 2px;
+}
+
+.messagepop input[type="checkbox"] {
+	height: 10px;
+	width: 10px;
+}
+
+.messagepop .close {
+    background: url(close.png) no-repeat;
+    text-decoration: none;
+}
+
+.messagepop .update_button{
+	font-size: 12px;
+	font-weight: bold;
+    padding: 3px 6px;
+    background: url(/static/images/button.gif) repeat-x;
+    border: 1px solid #c2c2c2;
+    color: #333;
+    margin:10px 0 0 0;
+    text-decoration: none;
+}
+
+#sc_left
+{
+	border-color:transparent #fff transparent transparent;
+	border-style:solid;
+	border-width:4px 8px 4px 0;
+	float:left;
+	height:0;
+	margin:0 5px;
+	width:0;
+}
+
+#sc_right
+{
+	border-color:transparent transparent transparent #fff;
+	border-style:solid;
+	border-width:4px 0 4px 8px;
+	float:left;
+	height:0;
+	margin:0 5px;
+	width:0;
+}
+/* end */
+
+.form_table
+{
+	padding: 4px;
+	width: 60%;
+	border: 1px solid #999;
+	background: #f9f9f9;
+}
+
+.form_table th
+{
+	padding: 4px;
+	text-align: left;
+	width: 100px;
+}
+
+.form_table td
+{
+	padding: 2px 0;
+	text-align: left;
+}
+
+.form_table .button
+{
+	margin: 0;
+}
+
+.list_table
+{
+	padding: 0;
+	width: 60%;
+	border:0;
+}
+
+.list_table th
+{
+	padding:3px 6px;
+}
+
+.list_table td
+{
+	padding:3px 6px;
+}
+
+.no_link{
+	cursor: default;
+}
+
+#disclaimer{
+	margin-top: 11px;
+	color: #990000;
+	font-weight: bold;
+}

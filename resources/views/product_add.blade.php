@@ -1,0 +1,150 @@
+@extends('layouts.master')
+@section('content')
+<style type="text/css">
+#tester_software {
+  height: 950px;
+  overflow: auto;
+  margin-top: 20px;
+}
+table, th, td {
+  border: 0px solid black;
+  border-collapse: collapse;
+}
+.scrollable-menu {
+  height: auto;
+  max-height: 210px;
+  overflow-x: hidden;
+}
+</style>
+
+<div class="x_panel">
+  <div class="x_title">
+    <h2>Add New Product</h2>
+
+    <ul class="nav navbar-right panel_toolbox">
+      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Settings 1</a>
+          </li>
+          <li><a href="#">Settings 2</a>
+          </li>
+        </ul>
+      </li>
+      <li><a class="close-link"><i class="fa fa-close"></i></a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+    <br />
+    <div class="form-horizontal form-label-left">
+
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Name</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <input name="tbx_productname" id="tbx_productname" type="text" class="form-control" placeholder="Product Name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Family</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <input name="tbx_productfamily" id="tbx_productfamily" type="text" class="form-control" placeholder="Product Family">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Employee ID</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <select name="ddl_empid" id="ddl_empid" class="form-control" disabled="disabled">
+            @if(Session::has('user_info'))
+            <option>{!! Session::get('user_info')['username'] !!}</option>
+            @else
+            <option>EMPLOYEE ID</option>
+            @foreach(\App\models\tb_member::where('emp_id','!=','')
+            ->select('emp_id')
+            ->groupBy('emp_id')
+            ->orderBy('emp_id','asc')
+            ->get() as $str_array)
+            <option>{{ $str_array['emp_id']}}</option>
+            @endforeach
+            @endif
+
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">Employee Name</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+          <select name="ddl_empname" id="ddl_empname" class="select2_single form-control" tabindex="-1" disabled="disabled">
+            @if(Session::has('user_info'))
+            <option>{!! Session::get('user_info')['name'] !!}</option>
+            @else
+            <option>EMPLOYEE NAME</option>
+            @foreach(\App\models\tb_member::where('emp_name','!=','')
+            ->orderBy('emp_name','asc')
+            ->get() as $str_array)
+            <option>{{ $str_array['emp_name']}}</option>
+            @endforeach
+            @endif
+
+          </select>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+
+      <div class="form-group">
+        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+          <a href="{{ url('product_detail') }}" class="btn btn-primary" role="Add">Cancel</a>
+          <button type="reset" class="btn btn-primary">Reset</button>
+          <button name="submit" id="insert"  class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="{{ url('vendor/jquery/dist/jquery.js')}}"></script>
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $('#ddl_empid').change(function(){
+      var ddl_empid = $(this).val(); 
+      var argu = 'empid_'+ddl_empid;
+      
+      $.get("../query_member/"+argu, function(data)
+      {
+        $('#ddl_empname').val(data[0].emp_name);
+      });
+    });
+  });
+
+  $("#insert").click(function()
+  {
+    $.post("{{ route('product_detail.store') }}",
+    {
+      product_name:$("#tbx_productname").val(),
+      product_family:$("#tbx_productfamily").val(),
+      product_owner:$("#ddl_empname").val(),
+      emp_id:$("#ddl_empid").val(),
+      timestamp:'',
+      _token:"{{ csrf_token() }}",
+
+    },function(data){
+      if(data){
+        //alert('have data : ' + data);
+        var url= "{{ url('product_detail') }}";
+        window.location=url;
+      }
+      else{
+        //alert('have not data');
+      }
+    });
+  });
+</script>
+@stop
