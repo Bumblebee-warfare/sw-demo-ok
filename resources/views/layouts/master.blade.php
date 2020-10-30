@@ -101,7 +101,7 @@
                     <li><a href="{{ url('job_history')}}"> Job History</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-user"></i> MEMBER <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-user"></i> MEMBER TDE <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="{{ url('member') }}"> member</a></li>
                   </ul>
