@@ -138,6 +138,7 @@
       </div>
     </div>
   </div>
+
   <style type="text/css">
   #tester_software {
     height:950px;
@@ -261,6 +262,8 @@ $.post("{{ route('home.chart') }}",
   _token:"{{ csrf_token() }}",
 
 },function(data){
+
+
 
     if(data){
     var name = data['name'];

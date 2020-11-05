@@ -18,6 +18,7 @@ class TesterInventoryController extends Controller
     public function index()
     {
         $objs= Tester_Inventory::limit(200)
+        // ->where('Acctive_Status','=','RUNNING')
         ->orderBy('TimeStamp','=','DESC')
         ->get();
         $data['objs'] = $objs;
@@ -113,7 +114,15 @@ class TesterInventoryController extends Controller
     public function store(Request $request)
 
     {
+
+        Tester_Inventory::where('TesterName',$request->input('TesterName'))->where('Acctive_Status', "RUNNING")->update([
+          
+            "Acctive_Status"             => "STOP",
+            "TimeStamp" => date("Y-m-d H:i:s",time())
+        ]);
              // insert form 
+        //sleep for 3 seconds
+        sleep(1);
 
         $datetime = date("Y-m-d H:i:s");
 

@@ -155,7 +155,7 @@ Route::get('ddl_event_inventory/{id}',function($id){
             $where = substr($where, 0, -4);
         }
 
-        $str_array = DB::select("select * from tb_tester_inventory " .$where);
+        $str_array = DB::select("select * from tb_tester_inventory " .$where. "and Acctive_Status ='RUNNING' order by TimeStamp DESC");
 
         return $str_array;
     }

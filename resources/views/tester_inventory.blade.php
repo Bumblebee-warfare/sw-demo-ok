@@ -105,6 +105,7 @@ table, th, td {
             <table id="default-table" class="table table-striped table-bordered" role="grid" style="height:auto;margin: auto;">
               <thead style="padding:3px;cursor:pointer;">
                 <tr>
+                  <th class="sorting">TestInven_Id</th>
                   <th class="sorting">TesterName</th>
                   <th class="sorting">ProductName</th>
                   <th class="sorting">ModelCCC</th>
@@ -113,12 +114,14 @@ table, th, td {
                   <th class="sorting">Quantity</th>
                   <th class="sorting">Platform</th>
                   <th class="sorting">TimeStamp</th>
+                  <th class="sorting">Acctive_Status</th>
                 </tr>
               </thead>
               <tbody id="tbody">
 
                 @foreach($objs as $row)
                 <tr>
+                  <td class="sorting">{{ $row->TestInven_Id }}</td>
                   <td class="sorting">{{ $row->TesterName }}</td>
                   <td class="sorting">{{ $row->ProductName }}</td>
                   <td class="sorting">{{ $row->ModelCCC }}</td>
@@ -127,6 +130,7 @@ table, th, td {
                   <td class="sorting">{{ $row->Quantity }}</td>
                   <td class="sorting">{{ $row->Platform }}</td>
                   <td class="sorting">{{ $row->TimeStamp }}</td>
+                    <td class="sorting">{{ $row->Acctive_Status }}</td>
                 </tr>
                 @endforeach
 
@@ -152,7 +156,7 @@ table, th, td {
   </div>
 
 </div>
-<!--script src="{{ url('vendor/jquery/dist/jquery.js')}}"></script-->
+
 <script type="text/javascript">
 
   $(document).ready(function(){ 
@@ -181,6 +185,7 @@ table, th, td {
             dataItems += '<td class="sorting">'+ data[index].Quantity+'</td>';
              dataItems += '<td class="sorting">'+ data[index].Platform+'</td>';
             dataItems += '<td class="sorting">'+ data[index].TimeStamp+'</td>';
+            dataItems += '<td class="sorting">'+ data[index].Acctive_Status+'</td>';
              
             dataItems += '</tr>';
           });
@@ -210,6 +215,7 @@ table, th, td {
             dataItems += '<td class="sorting">'+ data[index].Quantity+'</td>';
              dataItems += '<td class="sorting">'+ data[index].Platform+'</td>';
             dataItems += '<td class="sorting">'+ data[index].TimeStamp+'</td>';
+             dataItems += '<td class="sorting">'+ data[index].Acctive_Status+'</td>';
 
             dataItems += '</tr>';
           });
@@ -241,6 +247,7 @@ table, th, td {
             dataItems += '<td class="sorting">'+ data[index].Quantity+'</td>';
              dataItems += '<td class="sorting">'+ data[index].Platform+'</td>';
             dataItems += '<td class="sorting">'+ data[index].TimeStamp+'</td>';
+             dataItems += '<td class="sorting">'+ data[index].Acctive_Status+'</td>';
 
             dataItems += '</tr>';
           });
@@ -260,9 +267,10 @@ table, th, td {
 
       $.get("ddl_event_inventory/"+argu, function(data)
       {
-          //console.log(data);
+          console.log(data);
           var dataItems= '';
           $.each (data, function (index) {
+
           dataItems += '<tr>';
                 dataItems += '<td class="sorting">'+ data[index].TesterName+'</td>';
             dataItems += '<td class="sorting">'+ data[index].ProductName+'</td>';
@@ -272,6 +280,7 @@ table, th, td {
             dataItems += '<td class="sorting">'+ data[index].Quantity+'</td>';
              dataItems += '<td class="sorting">'+ data[index].Platform+'</td>';
             dataItems += '<td class="sorting">'+ data[index].TimeStamp+'</td>';
+             dataItems += '<td class="sorting">'+ data[index].Acctive_Status+'</td>';
 
             dataItems += '</tr>';
           });
